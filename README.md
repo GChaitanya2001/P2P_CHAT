@@ -17,5 +17,5 @@ peer-chat server) where the chat application listens for incoming connections.
 C
 
 ## Note:
-* Check report for more details on how to run.
+* Check report for more details on implementation and usage.
 
