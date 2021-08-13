@@ -191,9 +191,9 @@ int main(int argc, char **argv)
    }
    //Initializes the file descriptor set 'rd' to have zero bits for all file descriptors
    FD_ZERO(&rd);
-   //Sets the bit for sock_s in the file descriptor set 'rd'
+   //Sets the sock_s in the file descriptor set 'rd'
    FD_SET(sock_s, &rd);
-   //Sets the bit for stdin in the file descriptor set 'rd'
+   //Sets the stdin in the file descriptor set 'rd'
    FD_SET(0, &rd);
    maxfd = sock_s;
    //timeout for select
@@ -220,7 +220,7 @@ int main(int argc, char **argv)
    	 //If atleast one fd is ready
      else if(res > 0)
      {
-     	/*check whether the bit for sock_s is set in the fdset 'temp' 
+     	/*check whether sock_s is set in the fdset 'temp' 
      	  i.e, check if the user has some connection to accept*/
      	if(FD_ISSET(sock_s, &temp))
      	{
@@ -253,7 +253,7 @@ int main(int argc, char **argv)
        		}
        		FD_CLR(sock_s, &temp);
      	}
-        /*check whether the bit for sock_s is set in the 
+        /*check whether the stdin is set in the 
         fdset 'temp' i.e, when the user is about to send a msg*/
      	if(FD_ISSET(0, &temp))
      	{
